@@ -1,0 +1,11 @@
+Flutter
+
+frontend/build/ frontend/.dart_tool/ frontend/.flutter-plugins frontend/.flutter-plugins-dependencies frontend/.packages frontend/.pub-cache/ frontend/.pub/ frontend/lib/generated_plugin_registrant.dart
+
+Django
+
+backend/pycache/ backend/*.pyc backend/db.sqlite3 backend/venv/ backend/.env
+
+Autres
+
+*.log .DS_Store .idea/ .vscode/
