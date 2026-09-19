@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banoma-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: banoma-api
+  template:
+    metadata:
+      labels:
+        app: banoma-api
+    spec:
+      containers:
+        - name: api
+          image: banoma/api:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: banoma-secrets

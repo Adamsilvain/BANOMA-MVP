@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banoma-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: banoma-celery
+  template:
+    metadata:
+      labels:
+        app: banoma-celery
+    spec:
+      containers:
+        - name: worker
+          image: banoma/celery:latest
+          envFrom:
+            - secretRef:
+                name: banoma-secrets

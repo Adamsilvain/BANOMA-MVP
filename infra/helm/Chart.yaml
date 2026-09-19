@@ -1,0 +1,4 @@
+apiVersion: v2
+name: banoma
+description: Helm chart for BANOMA
+version: 0.1.0
