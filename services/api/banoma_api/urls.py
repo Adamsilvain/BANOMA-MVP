@@ -1,9 +1,11 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .views import (
-    VideoUploadView, ProfileView, TalentListView, OpportunityListCreateView, health,
-    RegisterView, ApplicationCreateView, MyApplicationsView,
-    PaymentCreateView, MyPaymentsView,
+    health, RegisterView,
+    VideoUploadView, ProfileView, TalentListView,
+    ProductListCreateView, MyProductsView,
+    PurchaseCreateView, MyPurchasesView, MySalesView,
+    PaymentWebhookMarkPaid,
 )
 
 urlpatterns = [
@@ -14,19 +16,20 @@ urlpatterns = [
     path('auth/login/', TokenObtainPairView.as_view(), name='login'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 
-    # Talents / profils
+    # Talents / profils scientifiques
     path('profiles/<int:user_id>/', ProfileView.as_view(), name='profile'),
     path('talents/', TalentListView.as_view(), name='talent-list'),
 
-    # Opportunités / candidatures
-    path('opportunities/', OpportunityListCreateView.as_view(), name='opportunity-list'),
-    path('applications/', ApplicationCreateView.as_view(), name='application-create'),
-    path('applications/mine/', MyApplicationsView.as_view(), name='application-mine'),
+    # Marketplace du savoir (cours, ebooks, datasets, prestations, code source)
+    path('products/', ProductListCreateView.as_view(), name='product-list'),
+    path('products/mine/', MyProductsView.as_view(), name='product-mine'),
+    path('purchases/', PurchaseCreateView.as_view(), name='purchase-create'),
+    path('purchases/mine/', MyPurchasesView.as_view(), name='purchase-mine'),
+    path('sales/mine/', MySalesView.as_view(), name='sales-mine'),
 
-    # Vidéos / portfolio
+    # Vidéos éducatives
     path('videos/', VideoUploadView.as_view(), name='video-upload'),
 
-    # Paiements
-    path('payments/', PaymentCreateView.as_view(), name='payment-create'),
-    path('payments/mine/', MyPaymentsView.as_view(), name='payment-mine'),
+    # Webhook paiement
+    path('payments/webhook/mark-paid/', PaymentWebhookMarkPaid.as_view(), name='payment-webhook'),
 ]

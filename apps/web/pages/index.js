@@ -14,8 +14,8 @@ export default function Home() {
         <a href="/talents" style={{ padding: '0.6rem 1.2rem', background: '#111', color: '#fff', borderRadius: 6, textDecoration: 'none' }}>
           Découvrir les talents
         </a>
-        <a href="/opportunites" style={{ padding: '0.6rem 1.2rem', border: '1px solid #111', borderRadius: 6, textDecoration: 'none', color: '#111' }}>
-          Voir les opportunités
+        <a href="/boutique" style={{ padding: '0.6rem 1.2rem', border: '1px solid #111', borderRadius: 6, textDecoration: 'none', color: '#111' }}>
+          Voir la boutique
         </a>
       </div>
     </main>
